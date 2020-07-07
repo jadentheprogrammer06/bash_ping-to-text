@@ -16,14 +16,14 @@ This is a useful tool for establishing your reliable network baseline; As you do
 Included with the "ping-to-text" script in this folder is a "traceroute-to-text" script.
 
 This is my first "real" bash script. (I spent quite a lengthy time cleaning up this code, writing the readme, and making the script
-feel nice to use. For a simple ping script its overkill but it is good practice with version control and writing clean code. I also understand programs should be intuitive and confusion-free.)
+feel nice to use, among other things. It was good practice with bash, version control and writing clean code in my projects. I also understand programs should be intuitive and confusion-free, so I cleaned up the script text and README files.)
 
 *I would appreciate any constructive criticism if anyone happens to view this in the future.*
 
 ---------------------------------------------------
 
 ----------------------------------------------------
-PATH INSTALLATION STEPS (Make script(s) executable + Install to PATH (as terminal commands) )
+PATH INSTALLATION STEPS:  Make script(s) executable + Install to PATH (as terminal commands)
 ----------------------------------------------------
 *chmod +x makes the scripts executable, if they aren't already when cloning/downloading from this repository.*
 *files located in ./bash_ping-to-text/bin/*
@@ -53,5 +53,11 @@ PATH INSTALLATION STEPS (Make script(s) executable + Install to PATH (as termina
 
 # Now that the script is in your PATH it should be available as a command.
 	Reboot the terminal. (reboot or exit -f)
+
+**Calling the scripts from PATH as commands:**
+
+	ping-to-text
+
+	traceroute-to-text
 
 note: If this doesn't work try searching the internet for answers.
