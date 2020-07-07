@@ -1,7 +1,5 @@
-# bash_ping-to-text
-#PING TO TEXT version 1.0
-*includes:*
-#TRACEROUTE TO TEXT version 1.0
+# bash_ping-to-text "PING TO TEXT version 1.0 & TRACEROUTE TO TEXT version 1.0"
+***Includes ping-to-text and traceroute-to-text scripts.***
 
 *Made by jadentheprogrammer06 on github*
  
@@ -35,15 +33,17 @@ feel nice to use. For a simple tool like this that I see being used often it was
 */opt/local/ can be the PATH script-installation-directory of your choice. I am using it here as an example.*
 
 
-*If you dont have /opt/local/ directory:*
+**If you dont have /opt/local/ directory:**
 	$ mkdir/opt/local/
 
 
-Move this script's folder to the PATH directory:
+**Move this script's folder to the PATH directory:**
+
 	$ mv bash_ping-to-text/ /opt/local/
 
 
-Add the following line to your ~/.bashrc file:
+**Add the following line to your ~/.bashrc file:**
+
 	$ export PATH=$PATH:/opt/local/bash_ping-to-text/bin
 
 
