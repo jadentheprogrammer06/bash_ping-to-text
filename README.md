@@ -1,11 +1,11 @@
-# bash_ping-to-text "PING TO TEXT version 1.0 & TRACEROUTE TO TEXT version 1.0"
+# bash_ping-to-text "PING TO TEXT version 1.0" & "TRACEROUTE TO TEXT version 1.0"
 ***Includes ping-to-text and traceroute-to-text scripts.***
 
 *Made by jadentheprogrammer06 on github*
  
 *About & Installation steps below.*
 ---------------------------------------------------
-##ABOUT THIS TOOL
+ABOUT THIS TOOL
 ---------------------------------------------------
 This is a hand-coded script I wrote to do the basic task of
 pinging a DNS/IP address and then saving the results to
@@ -23,31 +23,32 @@ feel nice to use. For a simple tool like this that I see being used often it was
 ---------------------------------------------------
 
 ----------------------------------------------------
-##PATH INSTALLATION STEPS (Make script(s) executable + Install to PATH (as terminal commands) )
+PATH INSTALLATION STEPS (Make script(s) executable + Install to PATH (as terminal commands) )
 ----------------------------------------------------
 *chmod +x makes the scripts executable.*
 *files located in ./bash_ping-to-text/bin/*
 
-	$ chmod +x ping-to-text; chmod +x traceroute-to-text
+	chmod +x ping-to-text; chmod +x traceroute-to-text
 
 */opt/local/ can be the PATH script-installation-directory of your choice. I am using it here as an example.*
 
 
 **If you dont have /opt/local/ directory:**
-	$ mkdir/opt/local/
+
+	mkdir/opt/local/
 
 
 **Move this script's folder to the PATH directory:**
 
-	$ mv bash_ping-to-text/ /opt/local/
+	mv bash_ping-to-text/ /opt/local/
 
 
 **Add the following line to your ~/.bashrc file:**
 
-	$ export PATH=$PATH:/opt/local/bash_ping-to-text/bin
+	export PATH=$PATH:/opt/local/bash_ping-to-text/bin
 
 
 # Now that the script is in your PATH it should be available as a command.
-	$ Reboot the terminal. (reboot or exit -f)
+	Reboot the terminal. (reboot or exit -f)
 
 note: If this doesn't work try searching the internet for answers.
