@@ -1,0 +1,30 @@
+#!/bin/bash
+LOGO="╺┳╸┏━┓┏━┓┏━╸┏━╸┏━┓┏━┓╻ ╻╺┳╸┏━╸   ╺┳╸┏━┓   ╺┳╸┏━╸╻ ╻╺┳╸\n ┃ ┣┳┛┣━┫┃  ┣╸ ┣┳┛┃ ┃┃ ┃ ┃ ┣╸ ╺━╸ ┃ ┃ ┃╺━╸ ┃ ┣╸ ┏╋┛ ┃\n ╹ ╹┗╸╹ ╹┗━╸┗━╸╹┗╸┗━┛┗━┛ ╹ ┗━╸    ╹ ┗━┛    ╹ ┗━╸╹ ╹ ╹"
+
+OUTPUT_DIR=~/Documents/ping-to-text_output
+LOGS_DIR=$OUTPUT_DIR/logs
+CACHE_TRACEROUTE=$OUTPUT_DIR/cache_traceroute.txt
+LOGS_DIR_TRACEROUTE=$LOGS_DIR/traceroute
+RUN_LOOP=1
+
+while [ $RUN_LOOP=1 ]; do
+	RUN_PROMPT_LOOP=1
+	printf "$LOGO \n\n\n"
+	[[ -d "$OUTPUT_DIR" ]] && echo "Output directory exists. ($OUTPUT_DIR)" || echo "Output directory non-existent. Creating one now. ($OUTPUT_DIR)"; mkdir -p $OUTPUT_DIR
+	[[ -d "$LOGS_DIR" ]] && echo "Logs directory exists. ($LOGS_DIR)" || echo "Logs directory non-existent. Creating one now. ($LOGS_DIR)"; mkdir -p $LOGS_DIR
+	[[ -d "$LOGS_DIR_TRACEROUTE" ]] && echo "Logs(for Traceroute) directory exists. ($LOGS_DIR_TRACEROUTE)" || echo "Logs(for Traceroute) directory non-existent. Creating one now. ($LOGS_DIR_TRACEROUTE)"; mkdir -p $LOGS_DIR_TRACEROUTE
+	
+	printf "\nPlease enter the DNS/IP address (website URL) you would like to traceroute.\n>>>"; read userinput
+	echo "tracerouting $userinput ... *note: traceroute could take a bit."; traceroute $userinput 4 >> $CACHE_TRACEROUTE && printf "\n$userinput was tracerouted." || printf "\nWas not able to traceroute $userinput."
+	printf "\n Now printing output in $CACHE_TRACEROUTE file ...\n"; sleep 4; cat $CACHE_TRACEROUTE
+	
+	DATETIME=$(date +"_%T_%m_%d_%y")
+	cp $CACHE_TRACEROUTE output_traceroute$DATETIME.txt && mv output_traceroute$DATETIME.txt $LOGS_DIR_TRACEROUTE &&  echo  "" > $CACHE_TRACEROUTE && printf "\nBackup ($LOGS_DIR_TRACEROUTE/output_traceroute$DATETIME.txt) made. New cache file ready for usage."
+	printf '\n\nWould you like to run the script again? ["yes" to run or "no" to exit]\n'
+	yesorno=""
+	while [ $RUN_PROMPT_LOOP=1 ];
+	do
+		[[ $yesorno != "n"* ]] && [[ $yesorno != "y"* ]] && read -p "(y)yes or (n)no >>>" yesorno || RUN_PROMPT_LOOP=0; [[ $RUN_PROMPT_LOOP == 0 ]] && break || echo "Enter a valid option."
+	done
+	[[ $yesorno == "y"* ]] && printf "\n\n\n\n\n\n" RUN_LOOP=1 || break
+done
