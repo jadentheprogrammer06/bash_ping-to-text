@@ -15,8 +15,8 @@ This is a useful tool for establishing your reliable network baseline; As you do
 
 Included with the "ping-to-text" script in this folder is a "traceroute-to-text" script.
 
-This is/was my first "real" bash script. (I spent quite a lengthy time cleaning up this code, writing the readme, and making the script
-feel nice to use. For a simple tool like this that I see being used often it was worth it.)
+This is my first "real" bash script. (I spent quite a lengthy time cleaning up this code, writing the readme, and making the script
+feel nice to use. For a simple ping script its overkill but it is good practice with version control and writing clean code. I also understand programs should be intuitive and confusion-free.)
 
 *I would appreciate any constructive criticism if anyone happens to view this in the future.*
 
@@ -25,20 +25,20 @@ feel nice to use. For a simple tool like this that I see being used often it was
 ----------------------------------------------------
 PATH INSTALLATION STEPS (Make script(s) executable + Install to PATH (as terminal commands) )
 ----------------------------------------------------
-*chmod +x makes the scripts executable.*
+*chmod +x makes the scripts executable, if they aren't already when cloning/downloading from this repository.*
 *files located in ./bash_ping-to-text/bin/*
 
 	chmod +x ping-to-text; chmod +x traceroute-to-text
 
-*/opt/local/ can be the PATH script-installation-directory of your choice. I am using it here as an example.*
+*/opt/local/ can be the PATH script-installation-directory of your choice. I am using it here as an example since its where it is recommended to install custom scripts.*
 
 
 **If you dont have /opt/local/ directory:**
 
-	mkdir/opt/local/
+	mkdir /opt/local/
 
 
-**Move this script's folder to the PATH directory:**
+**Move this script's folder to the PATH directory above, or one of your choice:**
 
 	mv bash_ping-to-text/ /opt/local/
 
@@ -47,6 +47,9 @@ PATH INSTALLATION STEPS (Make script(s) executable + Install to PATH (as termina
 
 	export PATH=$PATH:/opt/local/bash_ping-to-text/bin
 
+**Alternatively, if you choose a different PATH directory (such as /usr/local/bin), the line will look similar to this:**
+
+	export PATH=$PATH:/usr/local/bin/bash_ping-to-text/bin
 
 # Now that the script is in your PATH it should be available as a command.
 	Reboot the terminal. (reboot or exit -f)
