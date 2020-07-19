@@ -21,7 +21,10 @@ feel nice to use, among other things. It was good practice with bash, version co
 *I would appreciate any constructive criticism if anyone happens to view this in the future.*
 
 ---------------------------------------------------
-
+----------------------------------------------------
+	RECENT UPDATES TO THE SCRIPT(s)
+----------------------------------------------------
+*July 19: Can now pass in an argument from the command line (shell).*
 ----------------------------------------------------
 PATH INSTALLATION STEPS:  Make script(s) executable + Install to PATH (as terminal commands)
 ----------------------------------------------------
