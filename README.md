@@ -1,4 +1,4 @@
-# bash_ping-to-text "PING TO TEXT version 1.2" & "TRACEROUTE TO TEXT version 1.2"
+# "PING TO TEXT version 1.2.2" & "TRACEROUTE TO TEXT version 1.2.2" for Linux-based OS.
 ***Includes ping-to-text and traceroute-to-text scripts.***
 
 *Made by jadentheprogrammer06 on github*
@@ -7,7 +7,7 @@
 ---------------------------------------------------
 ABOUT THIS TOOL
 ---------------------------------------------------
-This is a hand-coded script I wrote to do the basic task of
+This is a script I wrote to do the basic task of
 pinging a DNS/IP address and then saving the results to
 a log file which is named by date and time.
 
@@ -15,16 +15,15 @@ This is a useful tool for establishing your reliable network baseline; As you do
 
 Included with the "ping-to-text" script in this folder is a "traceroute-to-text" script.
 
-This is my first "real" bash script. (I spent quite a lengthy time cleaning up this code, writing the readme, and making the script
-feel nice to use, among other things. It was good practice with bash, version control and writing clean code in my projects. I also understand programs should be intuitive and confusion-free, so I cleaned up the script text and README files.)
-
 *I would appreciate any constructive criticism if anyone happens to view this in the future.*
 
 ---------------------------------------------------
 ----------------------------------------------------
 RECENT UPDATES TO THE SCRIPT(s)
 ----------------------------------------------------
-*July 19 2020: Can now pass in an argument from the command line (shell).*
+*JULY 19 2020: Version 1.2.2: Can now pass in multiple arguments from the command line (shell).*
+*Refined code and patched some bugs.*
+*July 19 2020: Version 1.2: Can now pass in an argument from the command line (shell).*
 *Also planning to allow batch-pinging of multiple addresses (passing in multiple arguments to the script)*
 
 ----------------------------------------------------
@@ -65,4 +64,4 @@ PATH INSTALLATION STEPS:  Make script(s) executable + Install to PATH (as termin
 
 	traceroute-to-text
 
-note: If this doesn't work try searching the internet for answers.
+note: This installation guide was designed for ubuntu-based OS(s). The steps for other Linux based operating systems shouldn't be too different. To run on windows install WSL2.

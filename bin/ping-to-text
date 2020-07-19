@@ -2,28 +2,55 @@
 LOGO="┏━┓╻┏┓╻┏━╸   ╺┳╸┏━┓   ╺┳╸┏━╸╻ ╻╺┳╸\n┣━┛┃┃┗┫┃╺┓    ┃ ┃ ┃    ┃ ┣╸ ┏╋┛ ┃ \n╹  ╹╹ ╹┗━┛    ╹ ┗━┛    ╹ ┗━╸╹ ╹ ╹ "
 OUTPUT_DIR=~/Documents/ping-to-text_output
 LOGS_DIR=$OUTPUT_DIR/logs
-CACHE_PING=$OUTPUT_DIR/cache_ping.txt
+CACHE_DIR=$OUTPUT_DIR/cache
+CACHE_PING=$CACHE_DIR/cache_ping.txt
 LOGS_DIR_PING=$LOGS_DIR/ping
 RUN_LOOP=1
-while [ $RUN_LOOP=1 ]; do
-	RUN_PROMPT_LOOP=1
-	printf "$LOGO \n\n\n"
-	[[ -d "$OUTPUT_DIR" ]] && echo "Output directory exists. ($OUTPUT_DIR)" || echo "Output directory non-existent. Creating one now. ($OUTPUT_DIR)"; mkdir -p $OUTPUT_DIR
-	[[ -d "$LOGS_DIR" ]] && echo "Logs directory exists. ($LOGS_DIR)" || echo "Logs directory non-existent. Creating one now. ($LOGS_DIR)"; mkdir -p $LOGS_DIR
-	[[ -d "$LOGS_DIR_PING" ]] && echo "Logs(for Ping) directory exists. ($LOGS_DIR_PING)" || echo "Logs(for Ping) directory non-existent. Creating one now. ($LOGS_DIR_PING)"; mkdir -p $LOGS_DIR_PING
-	
-	printf "\nPlease enter the DNS/IP address (website URL) you would like to ping.\n>>>";
-	[[ $1 != '' ]] && printf "\nDetected argument provided from shell: $1\n" && userinput=$1 || read userinput
+ARG_PINGED=0
+MULTIPLE_ARGS=0
+[[ $# > 1 ]] && MULTIPLE_ARGS=1 || MULTIPLE_ARGS=0
+
+ping_to_text() {
 	echo "pinging $userinput ... "; ping $userinput -c 4 >> $CACHE_PING && printf "\n$userinput was pinged." || printf "\nWas not able to ping $userinput."
 	printf "\n Now printing output in $CACHE_PING file ...\n"; sleep 4; cat $CACHE_PING
-	
 	DATETIME=$(date +"_%T_%m_%d_%y")
 	cp $CACHE_PING output_ping$DATETIME.txt && mv output_ping$DATETIME.txt $LOGS_DIR_PING &&  echo  "" > $CACHE_PING && printf "\nBackup ($LOGS_DIR_PING/output_ping$DATETIME.txt) made. New cache file ready for usage."
+}
+
+check_for_dir() {
+	[[ -d "$DIR_NAME" ]] && echo "Directory exists. ($DIR_NAME)" || echo "Directory non-existent. Creating one now. ($DIR_NAME)"; mkdir -p $DIR_NAME
+}
+
+while [ $RUN_LOOP == 1 ]; do
+	RUN_PROMPT_LOOP=1
+	printf "$LOGO \n\n\n"
+
+for DIR_NAME in $OUTPUT_DIR $LOGS_DIR $LOGS_DIR_PING $CACHE_DIR; do
+	check_for_dir
+done
+
+if [ $MULTIPLE_ARGS == 0 ]; then
+	[[ $1 == '' ]] && printf "\nPlease enter the DNS/IP address (website URL) you would like to ping.\n>>>";
+	[[ $1 != '' ]] && printf "\nDetected argument provided from shell: $1\n" && userinput=$1 && ARG_PINGED=1 || read userinput
+	ping_to_text
+else
+	ARG_PINGED=1
+	printf "\nDetected multiple arguments provided from shell:\n"
+	for arg_var in "$@"
+	do
+		userinput=$arg_var
+		ping_to_text
+	done
+fi
+
+	[[ $ARG_PINGED == 1 ]] && printf "\nFinished pinging shell-argument(s). Now exiting program." && break || printf "\n"
 	printf '\n\nWould you like to run the script again? ["yes" to run or "no" to exit]\n'
 	yesorno=""
+
 	while [ $RUN_PROMPT_LOOP=1 ];
 	do
 		[[ $yesorno != "n"* ]] && [[ $yesorno != "y"* ]] && read -p "(y)yes or (n)no >>>" yesorno || RUN_PROMPT_LOOP=0; [[ $RUN_PROMPT_LOOP == 0 ]] && break || echo "Enter a valid option."
 	done
 	[[ $yesorno == "y"* ]] && printf "\n\n\n\n\n\n" RUN_LOOP=1 || break
 done
+
