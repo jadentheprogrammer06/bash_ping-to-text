@@ -1,4 +1,4 @@
-# bash_ping-to-text "PING TO TEXT version 1.0" & "TRACEROUTE TO TEXT version 1.0"
+# bash_ping-to-text "PING TO TEXT version 1.2" & "TRACEROUTE TO TEXT version 1.2"
 ***Includes ping-to-text and traceroute-to-text scripts.***
 
 *Made by jadentheprogrammer06 on github*
@@ -24,7 +24,9 @@ feel nice to use, among other things. It was good practice with bash, version co
 ----------------------------------------------------
 RECENT UPDATES TO THE SCRIPT(s)
 ----------------------------------------------------
-*July 19: Can now pass in an argument from the command line (shell).*
+*July 19 2020: Can now pass in an argument from the command line (shell).*
+*Also planning to allow batch-pinging of multiple addresses (passing in multiple arguments to the script)*
+
 ----------------------------------------------------
 PATH INSTALLATION STEPS:  Make script(s) executable + Install to PATH (as terminal commands)
 ----------------------------------------------------
