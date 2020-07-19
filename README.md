@@ -37,6 +37,7 @@ PATH INSTALLATION STEPS:  Make script(s) executable + Install to PATH
 ----------------------------------------------------
 *chmod +x makes the scripts executable, if they aren't already when cloning/downloading from this repository.*
 *files located in ./bash_ping-to-text/bin/*
+*NOTE: it is important to do this step so that files can be created.*
 
 	chmod +x ping-to-text; chmod +x traceroute-to-text
 
