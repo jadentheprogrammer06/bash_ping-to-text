@@ -12,7 +12,8 @@ while [ $RUN_LOOP=1 ]; do
 	[[ -d "$LOGS_DIR" ]] && echo "Logs directory exists. ($LOGS_DIR)" || echo "Logs directory non-existent. Creating one now. ($LOGS_DIR)"; mkdir -p $LOGS_DIR
 	[[ -d "$LOGS_DIR_PING" ]] && echo "Logs(for Ping) directory exists. ($LOGS_DIR_PING)" || echo "Logs(for Ping) directory non-existent. Creating one now. ($LOGS_DIR_PING)"; mkdir -p $LOGS_DIR_PING
 	
-	printf "\nPlease enter the DNS/IP address (website URL) you would like to ping.\n>>>"; read userinput
+	printf "\nPlease enter the DNS/IP address (website URL) you would like to ping.\n>>>";
+	[[ $1 != '' ]] && printf "\nDetected argument provided from shell: $1\n" && userinput=$1 || read userinput
 	echo "pinging $userinput ... "; ping $userinput -c 4 >> $CACHE_PING && printf "\n$userinput was pinged." || printf "\nWas not able to ping $userinput."
 	printf "\n Now printing output in $CACHE_PING file ...\n"; sleep 4; cat $CACHE_PING
 	

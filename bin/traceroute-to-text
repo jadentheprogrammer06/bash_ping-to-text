@@ -14,7 +14,9 @@ while [ $RUN_LOOP=1 ]; do
 	[[ -d "$LOGS_DIR" ]] && echo "Logs directory exists. ($LOGS_DIR)" || echo "Logs directory non-existent. Creating one now. ($LOGS_DIR)"; mkdir -p $LOGS_DIR
 	[[ -d "$LOGS_DIR_TRACEROUTE" ]] && echo "Logs(for Traceroute) directory exists. ($LOGS_DIR_TRACEROUTE)" || echo "Logs(for Traceroute) directory non-existent. Creating one now. ($LOGS_DIR_TRACEROUTE)"; mkdir -p $LOGS_DIR_TRACEROUTE
 	
-	printf "\nPlease enter the DNS/IP address (website URL) you would like to traceroute.\n>>>"; read userinput
+	printf "\nPlease enter the DNS/IP address (website URL) you would like to traceroute.\n>>>";
+	[[ $1 != '' ]] && printf "\nDetected argument provided from shell: $1\n" && userinput=$1 || read userinput
+
 	echo "tracerouting $userinput ... *note: traceroute could take a bit."; traceroute $userinput 4 >> $CACHE_TRACEROUTE && printf "\n$userinput was tracerouted." || printf "\nWas not able to traceroute $userinput."
 	printf "\n Now printing output in $CACHE_TRACEROUTE file ...\n"; sleep 4; cat $CACHE_TRACEROUTE
 	
