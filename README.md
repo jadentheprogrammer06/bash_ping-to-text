@@ -22,7 +22,7 @@ feel nice to use, among other things. It was good practice with bash, version co
 
 ---------------------------------------------------
 ----------------------------------------------------
-	RECENT UPDATES TO THE SCRIPT(s)
+RECENT UPDATES TO THE SCRIPT(s)
 ----------------------------------------------------
 *July 19: Can now pass in an argument from the command line (shell).*
 ----------------------------------------------------
