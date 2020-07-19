@@ -7,9 +7,11 @@
 ---------------------------------------------------
 ABOUT THIS TOOL
 ---------------------------------------------------
-This is a script I wrote to do the basic task of
-pinging a DNS/IP address and then saving the results to
+These scripts can either ping or traceroute an
+DNS/IP address and then save the results to
 a log file which is named by date and time.
+
+I have included installation steps, primarily for Ubuntu-based Linux and WSL2 if installed on Windows 10.
 
 This is a useful tool for establishing your reliable network baseline; As you do more and more network connectivity tests it is important to log each test.
 
@@ -21,13 +23,15 @@ Included with the "ping-to-text" script in this folder is a "traceroute-to-text"
 ----------------------------------------------------
 RECENT UPDATES TO THE SCRIPT(s)
 ----------------------------------------------------
-*JULY 19 2020: Version 1.2.2: Can now pass in multiple arguments from the command line (shell).*
-*Refined code and patched some bugs.*
-*July 19 2020: Version 1.2: Can now pass in an argument from the command line (shell).*
-*Also planning to allow batch-pinging of multiple addresses (passing in multiple arguments to the script)*
+*JULY 19 2020: Version 1.2.2:* 
+	*Can now pass in multiple arguments from the command line (shell).*
+	*Refined code and patched some bugs.*
+*July 19 2020: Version 1.2:*
+	*Can now pass in an argument from the command line (shell).*
+	*Also planning to allow batch-pinging of multiple addresses (passing in multiple arguments to the script)*
 
 ----------------------------------------------------
-PATH INSTALLATION STEPS:  Make script(s) executable + Install to PATH (as terminal commands)
+PATH INSTALLATION STEPS:  Make script(s) executable + Install to PATH
 ----------------------------------------------------
 *chmod +x makes the scripts executable, if they aren't already when cloning/downloading from this repository.*
 *files located in ./bash_ping-to-text/bin/*
