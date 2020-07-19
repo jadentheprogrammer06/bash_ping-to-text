@@ -3,7 +3,6 @@
 
 *Made by jadentheprogrammer06 on github*
  
-*About & Installation steps below.*
 ---------------------------------------------------
 ABOUT THIS TOOL
 ---------------------------------------------------
@@ -24,9 +23,12 @@ Included with the "ping-to-text" script in this folder is a "traceroute-to-text"
 RECENT UPDATES TO THE SCRIPT(s)
 ----------------------------------------------------
 *JULY 19 2020: Version 1.2.2:* 
+
 	*Can now pass in multiple arguments from the command line (shell).*
 	*Refined code and patched some bugs.*
+
 *July 19 2020: Version 1.2:*
+
 	*Can now pass in an argument from the command line (shell).*
 	*Also planning to allow batch-pinging of multiple addresses (passing in multiple arguments to the script)*
 
